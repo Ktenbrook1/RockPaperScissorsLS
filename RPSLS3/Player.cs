@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace RPSLS3
 {
-    abstract class Weapon
+    abstract class Player
     {
-        public string nameOfWeapon;
+        public int score;
+        List<Weapon> weaponsList;
 
-        public Weapon()
+        public Player()
         {
-            
+
         }
-      
+
+        public abstract int ChooseGesture();
+       
     }
 }
