@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS3
 {
-    class Spock
+    class Spock : Weapon
     {
     }
 }

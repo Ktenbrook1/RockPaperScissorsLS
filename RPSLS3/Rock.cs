@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace RPSLS3
 {
-    class Rock
+    class Rock : Weapon
     {
+        public Rock()
+        {
+            nameOfWeapon = "Rock";
+        }
+
     }
 }

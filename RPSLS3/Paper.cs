@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace RPSLS3
 {
-    class Paper
+    class Paper : Weapon
     {
+        public Paper()
+        {
+            nameOfWeapon = "Paper";
+        }
     }
 }

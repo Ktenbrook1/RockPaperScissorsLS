@@ -8,5 +8,14 @@ namespace RPSLS3
 {
     class WeaponsList
     {
+        Rock rock;
+        Paper paper;
+        Scissors scissors;
+        Lizard lizard;
+        Spock spock;
+        public WeaponsList()
+        {
+            
+        }
     }
 }
