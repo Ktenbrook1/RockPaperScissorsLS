@@ -10,6 +10,8 @@ namespace RPSLS3
     {
         static void Main(string[] args)
         {
+            Game game = new Game();
+            //comparison of point here
         }
     }
 }

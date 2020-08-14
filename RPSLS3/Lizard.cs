@@ -8,5 +8,9 @@ namespace RPSLS3
 {
     class Lizard : Weapon
     {
+        public Lizard()
+        {
+            nameOfWeapon = "Lizard";
+        }
     }
 }

@@ -10,22 +10,19 @@ namespace RPSLS3
     {
         //variables "has a"
 
-        //Going to take out because they go into the constructor
-        Rock rock;
-        Paper paper;
-        Scissors scissors;
-        Lizard lizard;
-        Spock spock;
-
         Player player1;
         Player player2;
-  
+        //want to reference the same weapons list but unsure how
+        public List<Weapon> weaponsList = new List<Weapon>();
+
         //con
         public Game()
         {
+            WelcomeMessage();
+            
             player1 = new Human();
             player2 = new Computer();
-            WelcomeMessage();
+            Compare();
         }
 
         //methods "can do"
@@ -36,45 +33,26 @@ namespace RPSLS3
                 "\n You will be playing against a robot for this game, best 2/3 wins." +
                 "\n Press any key to start");
             Console.ReadKey();
-        }
-     
-        public void GetNamesForWeapons(int Choice)
-        {
-            //if and else statements will go here
-            bool keepgoing = false;
-            do
-            {
-                if (Choice == 1)
-                {
-                    rock = new Rock();
-                }
-                else if (Choice == 2)
-                {
-                    paper = new Paper();
-                }
-                else if (Choice == 3)
-                {
-                    scissors = new Scissors();
-                }
-                else if (Choice == 4)
-                {
-                    lizard = new Lizard();
-                }
-                else if (Choice == 5)
-                {
-                    spock = new Spock();
-                }
-                else
-                {
-                    Console.WriteLine("That responce was notone of the following options, please try again");
-                    keepgoing = true;
-                }
-            } while (keepgoing);
-
+            Console.WriteLine("\n");
+            
         }
         public void Compare()
         {
             //compare the two inputs for a given round
+            if (player1.ChoosenGesture1.nameOfWeapon == "Rock" && player2.ChoosenGesture1.nameOfWeapon == "Paper" 
+                || player1.ChoosenGesture1.nameOfWeapon == "Paper" && player2.ChoosenGesture1.nameOfWeapon == "Rock")
+            {
+                if(player1.ChoosenGesture1.nameOfWeapon == "Paper")
+                {
+                    player1.score++;
+                }
+                else
+                {
+                    player2.score++;
+                }
+                
+            }
+
         }
     }
 }
