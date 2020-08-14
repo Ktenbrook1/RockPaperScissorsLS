@@ -15,12 +15,11 @@ namespace RPSLS3
         }
         public override void ChooseGesture()
         {
-            //int[] aIWeapon = new int[5];
-            //Random random = new Random();
+            int[] aIWeapon = new int[5];
+            Random random = new Random();
 
-            //int aIChoice = random.Next(aIWeapon.Length);
-            //ChoosenGesture1 = Choices[aIChoice];
-            ChoosenGesture1 = Choices[1];
+            int aIChoice = random.Next(aIWeapon.Length);
+            ChoosenGesture1 = Choices[aIChoice];
         }
         //should I put all the responces into a list of weapons for just the player/comp by himself of for both at the same time
         //public override void GetNamesForWeapons(int Choice)

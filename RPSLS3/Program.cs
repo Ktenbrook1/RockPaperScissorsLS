@@ -10,8 +10,25 @@ namespace RPSLS3
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
-            //comparison of point here
+            int winnerToken = 0;
+            do
+            {
+                Game game = new Game();
+                game.Compare();
+                Console.WriteLine("------------------------------------------------------------------------");
+                if (game.player1.score >= 2)
+                {
+                    winnerToken++;
+                    Console.WriteLine("Player 1 Wins");
+                }
+                else if (game.player2.score >= 2)
+                {
+                    winnerToken++;
+                    Console.WriteLine("Player 2 Wins");
+                }
+
+            } while (winnerToken == 0);
+            Console.ReadLine();
         }
     }
 }
