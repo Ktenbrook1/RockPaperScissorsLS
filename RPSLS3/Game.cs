@@ -76,30 +76,26 @@ namespace RPSLS3
                 {
                     if (player2.ChoosenGesture1.nameOfWeapon == "Paper")
                     {
-                        player2.score++;
                         Console.WriteLine("Paper covers Rock!");
-                        Console.WriteLine("Player 2 earns a point");
+                        P2EarnsPoint();
                     }
                     else
                     {
-                        player2.score++;
                         Console.WriteLine("Spock vaporizes Rock!!");
-                        Console.WriteLine("Player 2 earns a point");
+                        P2EarnsPoint();
                     }
                 }
                 else
                 {
                     if (player2.ChoosenGesture1.nameOfWeapon == "Scissors")
                     {
-                        player1.score++;
                         Console.WriteLine("Rock crushes Scissors");
-                        Console.WriteLine("Player 1 earns a point");
+                        P1EarnsPoint();
                     }
                     else if(player2.ChoosenGesture1.nameOfWeapon == "Lizard")
                     {
-                        player1.score++;
                         Console.WriteLine("Rock crushes Lizard");
-                        Console.WriteLine("Player 1 earns a point");
+                        P1EarnsPoint();
                     }
                 }
             }
@@ -109,15 +105,13 @@ namespace RPSLS3
                 {
                     if (player2.ChoosenGesture1.nameOfWeapon == "Scissors")
                     {
-                        player2.score++;
                         Console.WriteLine("Scissors cuts Paper");
-                        Console.WriteLine("Player 2 earns a point");
+                        P2EarnsPoint();
                     }
                     else
                     {
-                        player2.score++;
                         Console.WriteLine("Spock disaproves Paper");
-                        Console.WriteLine("Player 2 earns a point");
+                        P2EarnsPoint();
                     }
                 }
                 else
@@ -125,14 +119,12 @@ namespace RPSLS3
                     if (player2.ChoosenGesture1.nameOfWeapon == "Lizard")
                     {
                         Console.WriteLine("Lizard eats Paper");
-                        Console.WriteLine("Player 1 earns a point");
-                        player1.score++;
+                        P1EarnsPoint();
                     }
                     else if(player2.ChoosenGesture1.nameOfWeapon == "Rock")
                     {
                         Console.WriteLine("Paper covers Rock");
-                        Console.WriteLine("Player 1 earns a point");
-                        player1.score++;
+                        P1EarnsPoint();
                     }
                 }
             }
@@ -142,15 +134,13 @@ namespace RPSLS3
                 {
                     if (player2.ChoosenGesture1.nameOfWeapon == "Spock")
                     {
-                        player2.score++;
                         Console.WriteLine("Spock smashes Scissors");
-                        Console.WriteLine("Player 2 earns a point");
+                        P2EarnsPoint();
                     }
                     else
                     {
-                        player2.score++;
                         Console.WriteLine("Rock crushes Scissors");
-                        Console.WriteLine("Player 2 earns a point");
+                        P2EarnsPoint();
                     }
 
                 }
@@ -158,16 +148,14 @@ namespace RPSLS3
                 {
                     if (player2.ChoosenGesture1.nameOfWeapon == "Lizard")
                     {
-                        player1.score++;
                         Console.WriteLine("Scissors decapitates Lizard");
-                        Console.WriteLine("Player 1 earns a point");
+                        P1EarnsPoint();
                     }
                     //required to write a else if or else, for example, if the players both get scissors then this else would still run when it doesnt need to
                     else if(player2.ChoosenGesture1.nameOfWeapon == "Paper")
                     {
-                        player1.score++;
                         Console.WriteLine("Scissors cuts Paper");
-                        Console.WriteLine("Player 1 earns a point");
+                        P1EarnsPoint();
                     }
                 }
             }
@@ -177,29 +165,26 @@ namespace RPSLS3
                 {
                     if (player2.ChoosenGesture1.nameOfWeapon == "Rock")
                     {
-                        player2.score++;
                         Console.WriteLine("Rock crushes Lizard");
-                        Console.WriteLine("Player 2 earns a point");
+                        P2EarnsPoint();
                     }
                     else
-                    {
-                        player2.score++;
+                    { 
                         Console.WriteLine("Scissors decapitates Lizard");
-                        Console.WriteLine("Player 2 earns a point");
+                        P2EarnsPoint();
                     }
                 }
                 else
                 {
-                    player1.score++;
                     if (player2.ChoosenGesture1.nameOfWeapon == "Spock")
                     {
                         Console.WriteLine("Lizard poisons Spock");
-                        Console.WriteLine("Player 1 earns a point");
+                        P1EarnsPoint();
                     }
                     else if(player2.ChoosenGesture1.nameOfWeapon == "Paper")
                     {
                         Console.WriteLine("Lizard eats Paper");
-                        Console.WriteLine("Player 1 earns a point");
+                        P1EarnsPoint();
                     }
                 }
             }
@@ -209,35 +194,42 @@ namespace RPSLS3
                 {
                     if (player2.ChoosenGesture1.nameOfWeapon == "Lizard")
                     {
-                        player2.score++;
                         Console.WriteLine("Lizard poisons Spock ");
-                        Console.WriteLine("Player 2 earns a point");
+                        P2EarnsPoint();
                     }
                     else
                     {
-                        player2.score++;
                         Console.WriteLine("Paper disapproves Spock");
-                        Console.WriteLine("Player 2 earns a point");
+                        P2EarnsPoint();
                     }
                 }
                 else
                 {
                     if (player2.ChoosenGesture1.nameOfWeapon == "Rock")
                     {
-                        player1.score++;
                         Console.WriteLine("Spock vaporizes Rock");
-                        Console.WriteLine("Player 1 earns a point");
+                        P1EarnsPoint();
                     }
                     else if(player2.ChoosenGesture1.nameOfWeapon == "Scissors")
                     {
-                        player1.score++;
                         Console.WriteLine("Spock smashes Scissors");
-                        Console.WriteLine("Player 1 earns a point");
+                        P1EarnsPoint();
                     }
                 }
             }
-            Console.WriteLine("Player 1 now has a score of {0} points and Player two has {1} points", player1.score, player2.score);
+            Console.WriteLine("{0} now has a score of {1} and {2} has a score of {3} ",player1.name, player1.score, player2.name, player2.score);
             Console.WriteLine("----------------------------------------------------------------------");
+        }
+
+        public void P1EarnsPoint()
+        {
+            Console.WriteLine("{0} earns a point", player1.name);
+            player1.score++;
+        }
+        public void P2EarnsPoint()
+        {
+            Console.WriteLine("{0} earns a point", player2.name);
+            player2.score++;
         }
         
         public void RunGame()
@@ -247,8 +239,8 @@ namespace RPSLS3
                 player1.ChooseGesture();
                 player2.ChooseGesture();
                 Console.WriteLine("------------------------------------------------------------------------");
-                Console.WriteLine("Player one picked {0} ", player1.ChoosenGesture1.nameOfWeapon);
-                Console.WriteLine("Player two picked {0} ", player2.ChoosenGesture1.nameOfWeapon);
+                Console.WriteLine("{0} picked {1} ",player1.name, player1.ChoosenGesture1.nameOfWeapon);
+                Console.WriteLine("{0} picked {1} ",player2.name, player2.ChoosenGesture1.nameOfWeapon);
                 Console.WriteLine("May the odds be ever in your favor... ");
                 Console.WriteLine("------------------------------------------------------------------------");
                 Compare();
@@ -256,12 +248,12 @@ namespace RPSLS3
 
             if (player1.score == 2)
             {
-                Console.WriteLine("Player 1 Wins");
+                Console.WriteLine("{0} Wins!", player1.name);
                 Console.ReadLine();
             }
             else if (player2.score == 2)
             {
-                Console.WriteLine("Player 2 Wins");
+                Console.WriteLine("{0} Wins!", player2.name);
                 Console.ReadLine();
             }
         }
