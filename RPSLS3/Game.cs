@@ -11,9 +11,11 @@ namespace RPSLS3
     {
         //variables "has a"
 
+        //bool should be taken out
+        public bool show;
         public Player player1;
         public Player player2;
-        //want to reference the same weapons list but unsure how
+      
         public List<Weapon> weaponsList = new List<Weapon>();
 
         //con
@@ -22,6 +24,7 @@ namespace RPSLS3
             WelcomeMessage();
             player1 = new Human();
             player2 = new Computer();
+            
             Console.WriteLine("------------------------------------------------------------------------");
             Console.WriteLine("Player one picked {0} ", player1.ChoosenGesture1.nameOfWeapon);
             Console.WriteLine("Player two picked {0} ", player2.ChoosenGesture1.nameOfWeapon);
@@ -31,9 +34,9 @@ namespace RPSLS3
 
         //methods "can do"
         public void WelcomeMessage()
-        {
-            bool show = false;
-            if(show = false) {
+        {//will be set to false every time due to it being new game every time.... need to change
+           
+            if(show == false) {
                 Console.WriteLine("\nWelcome to Rock Paper Scissors Lizard Spock!! " +
                     "\n Where the odds of you matching with your opponent are less than 75-80%" +
                     "\n You will be playing against a robot for this game, best 2/3 wins." +
@@ -46,11 +49,12 @@ namespace RPSLS3
         }
         public void Compare()
         {
-            //I notice I could have made this easier on myself but I already wrote it all out and it works so I'm leaving it :)
+            //need to get it to where its doesnt go into the other if statements froma tie :(
             if (player1.ChoosenGesture1.nameOfWeapon == player2.ChoosenGesture1.nameOfWeapon)
             {
                 {
                     Console.WriteLine("It was a tie!! Try Again!");
+                    
                 }
             }
             if (player1.ChoosenGesture1.nameOfWeapon == "Rock")
@@ -74,7 +78,7 @@ namespace RPSLS3
                     {
                         Console.WriteLine("Rock crushes Scissors");
                     }
-                    else
+                    else if(player2.ChoosenGesture1.nameOfWeapon == "Lizard")
                     {
                         Console.WriteLine("Rock crushes Lizard");
                     }
@@ -101,7 +105,7 @@ namespace RPSLS3
                     {
                         Console.WriteLine("Lizard eats Paper");
                     }
-                    else
+                    else if(player2.ChoosenGesture1.nameOfWeapon == "Paper")
                     {
                         Console.WriteLine("Paper covers Rock");
                     }
@@ -129,7 +133,8 @@ namespace RPSLS3
                     {
                         Console.WriteLine("Scissors decapitates Lizard");
                     }
-                    else
+                    //required to write a else if or else, for example, if the players both get scissors then this else would still run when it doesnt need to
+                    else if(player2.ChoosenGesture1.nameOfWeapon == "Paper")
                     {
                         Console.WriteLine("Scissors cuts Paper");
                     }
@@ -156,7 +161,7 @@ namespace RPSLS3
                     {
                         Console.WriteLine("Lizard poisons Spock");
                     }
-                    else
+                    else if(player2.ChoosenGesture1.nameOfWeapon == "Paper")
                     {
                         Console.WriteLine("Lizard eats Paper");
                     }
@@ -183,11 +188,35 @@ namespace RPSLS3
                     {
                         Console.WriteLine("Spock vaporizes Rock");
                     }
-                    else
+                    else if(player2.ChoosenGesture1.nameOfWeapon == "Scissors")
                     {
                         Console.WriteLine("Spock smashes Scissors");
                     }
                 }
+            }
+        }
+        public void RunGame()
+        {
+            //have a loop that runs until game is over
+            //allow new gestures to happen
+            //keeps track of the score
+
+            do
+            {
+                Compare();
+                player1.ChooseGesture();
+                player2.ChooseGesture();
+
+            } while (player1.score <= 2 || player2.score <= 2);
+            if (player1.score >= 2)
+            {
+                Console.WriteLine("Player 1 Wins");
+                Console.ReadLine();
+            }
+            else if (player2.score >= 2)
+            {
+                Console.WriteLine("Player 2 Wins");
+                Console.ReadLine();
             }
         }
     }
