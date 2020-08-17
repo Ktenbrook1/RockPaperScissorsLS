@@ -13,6 +13,7 @@ namespace RPSLS3
         {
             Game game = new Game();
             game.RunGame();
+            Console.ReadLine();
         }
     }
 }

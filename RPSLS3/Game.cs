@@ -229,22 +229,21 @@ namespace RPSLS3
 
             do
             {
+                player1.ChooseGesture();
+                player2.ChooseGesture();
                 Console.WriteLine("------------------------------------------------------------------------");
                 Console.WriteLine("Player one picked {0} ", player1.ChoosenGesture1.nameOfWeapon);
                 Console.WriteLine("Player two picked {0} ", player2.ChoosenGesture1.nameOfWeapon);
                 Console.WriteLine("May the odds be ever in your favor... ");
                 Console.WriteLine("------------------------------------------------------------------------");
                 Compare();
-                player1.ChooseGesture();
-                player2.ChooseGesture();
-
-            } while (player1.score <= 2 || player2.score <= 2);
-            if (player1.score >= 2)
+            } while (player1.score < 2 && player2.score < 2);
+            if (player1.score == 2)
             {
                 Console.WriteLine("Player 1 Wins");
                 Console.ReadLine();
             }
-            else if (player2.score >= 2)
+            else if (player2.score == 2)
             {
                 Console.WriteLine("Player 2 Wins");
                 Console.ReadLine();

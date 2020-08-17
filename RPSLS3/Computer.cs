@@ -11,7 +11,7 @@ namespace RPSLS3
     { 
         public Computer()
         {
-            ChooseGesture();
+            
         }
         public override void ChooseGesture()
         {
