@@ -8,10 +8,9 @@ namespace RPSLS3
 {
     class Human : Player
     {
-        
         public Human()
         {
-            //could possible pass through a name
+            EnterName();
         }
         public override void ChooseGesture()
         {
@@ -28,6 +27,12 @@ namespace RPSLS3
                 choice = Console.ReadLine();
             }
             ChoosenGesture1 = Choices[userChoice - 1];
+        }
+
+        public void EnterName()
+        {
+            Console.WriteLine("What is your name?");
+            name = Console.ReadLine();
         }
     }
 }

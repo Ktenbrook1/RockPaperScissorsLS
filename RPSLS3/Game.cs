@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace RPSLS3
 {
@@ -34,10 +35,11 @@ namespace RPSLS3
             Console.ReadKey();
             Console.WriteLine("\n");
         }
+
         public void ChoosePlayer()
         {
             bool tryagain;
-            Console.WriteLine("Do you want to play against another player or the computer? \nEnter '1' for another player or '2'");
+            Console.WriteLine("Do you want to play against another player or the computer? \nEnter '1' for another player or '2' to play against the computer");
             do
             {
                 tryagain = false;

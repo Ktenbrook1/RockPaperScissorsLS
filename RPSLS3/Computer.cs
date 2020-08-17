@@ -11,7 +11,7 @@ namespace RPSLS3
     { 
         public Computer()
         {
-            
+            name = "Robo 2020";
         }
         public override void ChooseGesture()
         {

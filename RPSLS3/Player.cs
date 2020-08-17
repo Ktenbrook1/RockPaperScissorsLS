@@ -11,7 +11,7 @@ namespace RPSLS3
         public int score;
         public List<Weapon> Choices;
         public Weapon ChoosenGesture1;
-
+        public string name;
 
         public Player()
         {
