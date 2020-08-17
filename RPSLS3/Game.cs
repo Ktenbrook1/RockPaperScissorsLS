@@ -10,9 +10,6 @@ namespace RPSLS3
     class Game
     {
         //variables "has a"
-
-        //bool should be taken out
-        public bool show;
         public Player player1;
         public Player player2;
       
@@ -23,23 +20,43 @@ namespace RPSLS3
         {
             WelcomeMessage();
             player1 = new Human();
-            player2 = new Computer();
+            ChoosePlayer();
         }
 
         //methods "can do"
         public void WelcomeMessage()
-        {//will be set to false every time due to it being new game every time.... need to change
+        {  
+            Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock!! " +
+                "\nWhere the odds of you matching with your opponent are less than 75-80%" +
+                "\nYou will be playing against a robot for this game, best 2/3 wins." +
+                "\nPress any key to start");
+            Console.WriteLine("------------------------------------------------------------------------");
+            Console.ReadKey();
+            Console.WriteLine("\n");
+        }
+        public void ChoosePlayer()
+        {
+            bool tryagain;
+            Console.WriteLine("Do you want to play against another player or the computer? \nEnter '1' for another player or '2'");
+            do
+            {
+                tryagain = false;
+                string playAgainst = Console.ReadLine();
+                if (playAgainst == "1")
+                {
+                    player2 = new Human();
+                }
+                else if (playAgainst == "2")
+                {
+                    player2 = new Computer();
+                }
+                else
+                {
+                    Console.WriteLine("That was not a valid player option. Please try again... ");
+                    tryagain = true;
+                }
+            } while(tryagain);
            
-            if(show == false) {
-                Console.WriteLine("\nWelcome to Rock Paper Scissors Lizard Spock!! " +
-                    "\n Where the odds of you matching with your opponent are less than 75-80%" +
-                    "\n You will be playing against a robot for this game, best 2/3 wins." +
-                    "\n Press any key to start");
-                Console.WriteLine("------------------------------------------------------------------------");
-                Console.ReadKey();
-                Console.WriteLine("\n");
-                show = true;
-            }  
         }
         public void Compare()
         {
@@ -223,10 +240,6 @@ namespace RPSLS3
         
         public void RunGame()
         {
-            //have a loop that runs until game is over
-            //allow new gestures to happen
-            //keeps track of the score
-
             do
             {
                 player1.ChooseGesture();
@@ -238,6 +251,7 @@ namespace RPSLS3
                 Console.WriteLine("------------------------------------------------------------------------");
                 Compare();
             } while (player1.score < 2 && player2.score < 2);
+
             if (player1.score == 2)
             {
                 Console.WriteLine("Player 1 Wins");

@@ -11,7 +11,7 @@ namespace RPSLS3
         
         public Human()
         {
-            
+            //could possible pass through a name
         }
         public override void ChooseGesture()
         {
